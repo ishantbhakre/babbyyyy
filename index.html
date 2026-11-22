@@ -1,1313 +1,1023 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>For My Chhotuu Saa Pilluuu 🥺❤️</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>For My Chhotuuu Pilluuu 🥺❤️</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:ital,wght@0,400;0,700;0,900;1,600&family=Pacifico&display=swap');
 
-  <style>
-    :root {
-      --rose-pink: #d85a7f;
-      --soft-pink: #f6b8cb;
-      --cream-card: #fcf6f4;
-      --lavender-stripe: #e9dff2;
-      --pink-stripe: #f9dfe7;
-      --dark-bg: #11070d;
-      --rose-gold: #f4a4b8;
-      --champagne: #f6d5b8;
+  :root {
+    --pink-light: #ffe4ec;
+    --pink-mid: #ff8fab;
+    --pink-deep: #d6336c;
+    --rose-dark: #800f2f;
+    --cream: #fff9fb;
+    --gold: #ffb703;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #ffd6e0 0%, #ffccd5 50%, #ffc2d1 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #3d1424;
+    perspective: 1400px;
+  }
+
+  /* ==================== LOCK SCREEN ==================== */
+  #lock-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: #fff0f5;
+    background-image: 
+      repeating-linear-gradient(90deg, rgba(255, 182, 193, 0.25) 0px, rgba(255, 182, 193, 0.25) 28px, transparent 28px, transparent 56px),
+      radial-gradient(#ffb3c6 1.5px, transparent 1.5px);
+    background-size: 56px 100%, 28px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: transform 0.9s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.8s ease;
+    transform-style: preserve-3d;
+  }
+
+  #lock-screen.unlocked {
+    transform: translateY(-105%) rotateX(25deg);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .lock-container {
+    width: 100%;
+    max-width: 820px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    border-radius: 36px;
+    border: 4px dashed #ff8fab;
+    box-shadow: 0 25px 50px rgba(214, 51, 108, 0.22), inset 0 0 25px rgba(255, 255, 255, 0.9);
+    padding: 28px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+    position: relative;
+    transform: translateZ(20px);
+  }
+
+  /* Cute Bow Top Right */
+  .bow-decor {
+    position: absolute;
+    top: -18px;
+    right: -12px;
+    font-size: 46px;
+    filter: drop-shadow(0 6px 8px rgba(214,51,108,0.25));
+    transform: rotate(15deg);
+    user-select: none;
+  }
+
+  /* Heart Frame Left Side */
+  .heart-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .heart-frame-wrapper {
+    position: relative;
+    width: 280px;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 14px 22px rgba(214, 51, 108, 0.28));
+    animation: floatHeart 3.5s ease-in-out infinite;
+  }
+
+  @keyframes floatHeart {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.02); }
+  }
+
+  .heart-scallop-bg {
+    position: absolute;
+    inset: -12px;
+    background: #f8ad9d;
+    clip-path: path("M 152 272 C 152 272 12 182 12 92 C 12 42 52 12 96 12 C 124 12 144 28 152 46 C 160 28 180 12 208 12 C 252 12 292 42 292 92 C 292 182 152 272 152 272 Z");
+  }
+
+  .heart-photo-box {
+    width: 280px;
+    height: 255px;
+    clip-path: path("M 140 248 C 140 248 10 165 10 82 C 10 38 46 10 86 10 C 112 10 132 24 140 42 C 148 24 168 10 194 10 C 234 10 270 38 270 82 C 270 165 140 248 140 248 Z");
+    background: #e07a5f;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .heart-photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+
+  .heart-caption {
+    margin-top: 10px;
+    font-family: 'Pacifico', cursive;
+    color: var(--pink-deep);
+    font-size: 1.15rem;
+    text-align: center;
+  }
+
+  /* Keypad Side Right */
+  .keypad-side {
+    background: #fff8fa;
+    border: 3px solid #f4978e;
+    border-radius: 28px;
+    padding: 20px 18px;
+    box-shadow: inset 0 2px 10px rgba(244, 151, 142, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .padlock-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: var(--pink-deep);
+    transition: transform 0.3s ease;
+    margin-bottom: 4px;
+  }
+
+  .padlock-btn:hover {
+    transform: scale(1.15) rotate(-8deg);
+  }
+
+  .passcode-label {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    color: #9e2a47;
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .pin-boxes {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .pin-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #d6336c;
+    color: #fff;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 0 #9e1946;
+    transition: transform 0.15s ease, background 0.2s;
+  }
+
+  .pin-box.filled {
+    transform: scale(1.08);
+    background: #e63973;
+  }
+
+  .pin-boxes.shake {
+    animation: shakeBox 0.4s ease;
+  }
+
+  @keyframes shakeBox {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    50% { transform: translateX(8px); }
+    75% { transform: translateX(-6px); }
+  }
+
+  .numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .num-btn {
+    height: 46px;
+    border-radius: 50%;
+    border: none;
+    background: #f3e5e8;
+    color: #b52b54;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #dfc5cb;
+    transition: all 0.1s ease;
+  }
+
+  .num-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #dfc5cb;
+    background: #ffccd5;
+  }
+
+  .enter-btn {
+    margin-top: 12px;
+    width: 140px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background: #f3e5e8;
+    color: #b52b54;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #dfc5cb;
+    transition: all 0.15s ease;
+  }
+
+  .enter-btn:hover {
+    background: #ff8fab;
+    color: white;
+    box-shadow: 0 4px 0 #d6336c;
+  }
+
+  .enter-btn:active {
+    transform: translateY(3px);
+  }
+
+  .hint-text {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: #b56576;
+    font-weight: 700;
+  }
+
+  /* ==================== MEOW POP-UP OVERLAY ==================== */
+  #meow-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 950;
+    background: rgba(255, 228, 236, 0.92);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  #meow-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cute-cat-wrapper {
+    animation: catBounce 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite alternate;
+    text-align: center;
+  }
+
+  @keyframes catBounce {
+    0% { transform: translateY(35px) scale(0.95); }
+    100% { transform: translateY(-35px) scale(1.06); }
+  }
+
+  .cat-svg {
+    width: 190px;
+    height: 190px;
+    filter: drop-shadow(0 18px 25px rgba(214, 51, 108, 0.3));
+  }
+
+  .meow-bubble {
+    background: #fff;
+    border: 3px solid #ff8fab;
+    border-radius: 24px;
+    padding: 12px 26px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--pink-deep);
+    box-shadow: 0 10px 25px rgba(214, 51, 108, 0.2);
+    margin-bottom: 10px;
+  }
+
+  /* ==================== MAIN 3D WEBSITE ==================== */
+  #main-universe {
+    display: none;
+    min-height: 100vh;
+    padding: 24px 16px 90px 16px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  #main-universe.visible {
+    display: block;
+    animation: fadeInWorld 1s ease forwards;
+  }
+
+  @keyframes fadeInWorld {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* Floating 3D Hearts Background */
+  .floating-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .bg-heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 22px;
+    opacity: 0.45;
+    animation: riseUp linear infinite;
+  }
+
+  @keyframes riseUp {
+    0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+    20% { opacity: 0.55; }
+    100% { transform: translateY(-115vh) rotate(360deg) scale(1.3); opacity: 0; }
+  }
+
+  /* Header 3D Hero */
+  .hero-3d-header {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 10px auto 34px auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    padding: 32px 22px;
+    border: 3px solid #fff;
+    box-shadow: 
+      0 20px 45px rgba(181, 23, 78, 0.18),
+      0 6px 0 #ff8fab;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease-out;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff4d6d, #c9184a);
+    color: #fff;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+    box-shadow: 0 6px 15px rgba(201, 24, 74, 0.3);
+    transform: translateZ(25px);
+  }
+
+  .hero-title {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    color: var(--pink-deep);
+    text-shadow: 2px 3px 0px #ffc2d1;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    transform: translateZ(35px);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #7a203b;
+    max-width: 560px;
+    margin: 0 auto 20px auto;
+    transform: translateZ(20px);
+  }
+
+  .hero-photo-3d {
+    width: 175px;
+    height: 175px;
+    margin: 0 auto;
+    border-radius: 26px;
+    padding: 6px;
+    background: linear-gradient(135deg, #ff758f, #ffb3c6);
+    box-shadow: 0 18px 35px rgba(181, 23, 78, 0.28);
+    transform: translateZ(45px) rotate(-2deg);
+    transition: transform 0.4s ease;
+  }
+
+  .hero-photo-3d:hover {
+    transform: translateZ(55px) rotate(2deg) scale(1.05);
+  }
+
+  .hero-photo-3d img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 20px;
+  }
+
+  /* 3D Story Cards Stack */
+  .cards-3d-stage {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    perspective: 1200px;
+  }
+
+  .love-card-3d {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 28px;
+    padding: 28px 24px;
+    border: 2px solid #fff;
+    box-shadow: 
+      0 18px 38px rgba(164, 19, 60, 0.14),
+      0 6px 0 #ffb3c6;
+    transform-style: preserve-3d;
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .love-card-3d::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(180deg, #ff4d6d, #ff8fab);
+  }
+
+  .card-chapter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--pink-deep);
+    background: #ffe5ec;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    transform: translateZ(20px);
+  }
+
+  .card-heading {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.45rem;
+    color: #800f2f;
+    margin-bottom: 14px;
+    transform: translateZ(25px);
+  }
+
+  .card-body {
+    font-size: 1.06rem;
+    line-height: 1.75;
+    color: #3d1424;
+    font-weight: 600;
+    transform: translateZ(15px);
+    word-wrap: break-word;
+  }
+
+  .highlight-box {
+    margin-top: 16px;
+    background: linear-gradient(135deg, #fff0f3, #ffe5ec);
+    border-left: 4px solid #ff4d6d;
+    padding: 14px 16px;
+    border-radius: 14px;
+    font-weight: 800;
+    color: #a4133c;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  /* Interactive Forgive Me 3D Action Card */
+  .forgive-card {
+    background: linear-gradient(145deg, #ff4d6d, #c9184a);
+    color: #fff;
+    text-align: center;
+    border: 3px solid #ffb3c6;
+    box-shadow: 0 22px 45px rgba(201, 24, 74, 0.35), 0 8px 0 #800f2f;
+  }
+
+  .forgive-card::before {
+    display: none;
+  }
+
+  .forgive-card .card-heading {
+    color: #fff;
+    font-size: 1.8rem;
+  }
+
+  .forgive-card .card-body {
+    color: #fff0f3;
+  }
+
+  .btn-group-3d {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 22px;
+  }
+
+  .action-btn-3d {
+    border: none;
+    border-radius: 50px;
+    padding: 14px 28px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-yes {
+    background: #fff;
+    color: #c9184a;
+    box-shadow: 0 6px 0 #ffc2d1;
+  }
+
+  .btn-yes:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #ffc2d1;
+  }
+
+  .btn-kiss {
+    background: #ffb703;
+    color: #3d1424;
+    box-shadow: 0 6px 0 #fb8500;
+  }
+
+  .btn-kiss:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #fb8500;
+  }
+
+  #forgive-response {
+    margin-top: 18px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.25rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 14px;
+    border-radius: 18px;
+    display: none;
+  }
+
+  /* Floating Cute Cat Widget in Corner */
+  .corner-cat-widget {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 50;
+    background: #fff;
+    border: 3px solid #ff8fab;
+    border-radius: 50px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 25px rgba(214, 51, 108, 0.25);
+    cursor: pointer;
+    animation: gentleBob 2.2s ease-in-out infinite;
+  }
+
+  @keyframes gentleBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .corner-cat-widget span {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--pink-deep);
+  }
+
+  /* Responsive Mobile Adjustments */
+  @media (max-width: 720px) {
+    .lock-container {
+      grid-template-columns: 1fr;
+      padding: 20px 16px;
+      gap: 16px;
+      max-width: 400px;
     }
-
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      min-height: 100%;
-      overflow-x: hidden;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--dark-bg);
-    }
-
-    /* =========================================
-       LOCK SCREEN (PASTEL SCALLOPED AESTHETIC)
-       ========================================= */
-    #lock-screen {
-      position: fixed;
-      inset: 0;
-      z-index: 50;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      overflow-y: auto;
-      background-image:
-        repeating-linear-gradient(
-          90deg,
-          var(--pink-stripe) 0px,
-          var(--pink-stripe) 26px,
-          #fdf7fa 26px,
-          #fdf7fa 52px,
-          var(--lavender-stripe) 52px,
-          var(--lavender-stripe) 78px,
-          #fdf7fa 78px,
-          #fdf7fa 104px
-        );
-      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    #lock-screen.unlocked-exit {
-      opacity: 0;
-      transform: scale(1.08);
-      pointer-events: none;
-    }
-
-    /* Sparkles overlay on wallpaper */
-    .wallpaper-sparkles {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(#e7b8d2 2px, transparent 2px),
-        radial-gradient(#f5c4d6 2px, transparent 2px);
-      background-size: 52px 52px;
-      background-position: 0 0, 26px 26px;
-      opacity: 0.7;
-    }
-
-    /* Scalloped Heart Frame */
     .heart-frame-wrapper {
-      position: relative;
-      width: 295px;
-      height: 275px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      filter: drop-shadow(0 14px 28px rgba(186, 86, 118, 0.25));
-      transition: transform 0.4s ease;
+      width: 210px;
+      height: 195px;
     }
-
-    @media (min-width: 768px) {
-      .heart-frame-wrapper {
-        width: 390px;
-        height: 365px;
-      }
+    .heart-scallop-bg {
+      transform: scale(0.75);
+      transform-origin: top left;
+      inset: -8px;
     }
-
-    /* Lace scalloped heart outer ring */
-    .lace-heart-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 3;
+    .heart-photo-box {
+      width: 210px;
+      height: 192px;
+      clip-path: path("M 105 186 C 105 186 7 124 7 61 C 7 28 34 7 64 7 C 84 7 99 18 105 31 C 111 18 126 7 146 7 C 176 7 203 28 203 61 C 203 124 105 186 105 186 Z");
     }
-
-    /* Inner Heart Clip for the Orange Mirror Selfie */
-    .heart-photo-clip {
-      width: 85%;
-      height: 85%;
-      clip-path: url(#heartClipPath);
-      -webkit-clip-path: url(#heartClipPath);
-      background: linear-gradient(145deg, #c95a33 0%, #8a3319 50%, #3d160c 100%);
-      position: relative;
-      overflow: hidden;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .num-btn {
+      height: 42px;
+      font-size: 1.15rem;
     }
-
-    .heart-photo-clip img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 22%;
-      transition: transform 0.5s ease;
+    .love-card-3d {
+      padding: 22px 18px;
     }
-
-    /* Photo Picker Button on Heart */
-    .photo-change-badge {
-      position: absolute;
-      bottom: 18px;
-      right: 26px;
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.92);
-      color: #c94b72;
-      border: 2px solid #f4a4b8;
-      border-radius: 999px;
-      padding: 5px 11px;
-      font-size: 11px;
-      font-weight: 700;
-      font-family: 'Fredoka', sans-serif;
-      box-shadow: 0 4px 12px rgba(216, 90, 127, 0.25);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      transition: transform 0.2s ease;
-    }
-
-    .photo-change-badge:active {
-      transform: scale(0.93);
-    }
-
-    /* Scalloped Keypad Card */
-    .scalloped-pad-card {
-      position: relative;
-      background: var(--cream-card);
-      border-radius: 34px;
-      padding: 22px 22px 20px;
-      width: 100%;
-      max-width: 315px;
-      border: 4px solid #e695a8;
-      box-shadow:
-        0 0 0 6px #fcf6f4,
-        0 18px 36px rgba(185, 84, 115, 0.22);
-      font-family: 'Fredoka', sans-serif;
-    }
-
-    /* Cute Ribbon Bow Top-Right */
-    .ribbon-bow {
-      position: absolute;
-      top: -22px;
-      right: -18px;
-      width: 68px;
-      height: 68px;
-      z-index: 12;
-      pointer-events: none;
-      filter: drop-shadow(0 4px 8px rgba(216, 90, 127, 0.28));
-    }
-
-    /* Passcode Dots */
-    .pass-box {
-      width: 44px;
-      height: 36px;
-      border-radius: 8px;
-      background-color: #d65c7d;
-      color: #ffffff;
-      font-size: 24px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 2px 4px rgba(120, 20, 50, 0.25);
-      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s;
-    }
-
-    .pass-box.filled {
-      transform: scale(1.08);
-      background-color: #c64468;
-    }
-
-    /* Keypad Buttons */
-    .key-btn {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background-color: #ebdfdd;
-      color: #c95273;
-      font-size: 25px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      cursor: pointer;
-      border: none;
-      box-shadow: 0 3px 0 #d9c8c5;
-      transition: transform 0.12s ease, background-color 0.15s ease;
-    }
-
-    .key-btn span {
-      text-decoration: underline;
-      text-decoration-thickness: 2.5px;
-      text-underline-offset: 3px;
-    }
-
-    .key-btn.symbol span {
-      text-decoration: none;
-    }
-
-    .key-btn:active {
-      transform: translateY(3px) scale(0.94);
-      background-color: #f7cfd9;
-      box-shadow: 0 0 0 #d9c8c5;
-    }
-
-    .enter-pill-btn {
-      background-color: #ebdfdd;
-      color: #c95273;
-      font-size: 20px;
-      font-weight: 700;
-      padding: 8px 34px;
-      border-radius: 999px;
-      border: none;
-      box-shadow: 0 3px 0 #d9c8c5;
-      cursor: pointer;
-      transition: transform 0.15s ease, background-color 0.2s ease;
-    }
-
-    .enter-pill-btn:active {
-      transform: translateY(3px) scale(0.96);
-      background-color: #f7cfd9;
-    }
-
-    /* Cute Bouncing Meow Kitten */
-    .meow-cat-container {
-      position: relative;
-      z-index: 20;
-      cursor: pointer;
-      animation: catBobIdle 1.6s ease-in-out infinite;
-      filter: drop-shadow(0 10px 16px rgba(130, 55, 82, 0.28));
-    }
-
-    @keyframes catBobIdle {
-      0%, 100% {
-        transform: translateY(0px) rotate(-2deg) scale(1);
-      }
-      50% {
-        transform: translateY(-14px) rotate(2deg) scale(1.04);
-      }
-    }
-
-    .meow-cat-container.excited-jump {
-      animation: catHappyJump 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
-    }
-
-    @keyframes catHappyJump {
-      0%, 100% {
-        transform: translateY(0) scale(1.05, 0.95);
-      }
-      45% {
-        transform: translateY(-34px) scale(0.96, 1.12) rotate(5deg);
-      }
-      75% {
-        transform: translateY(-10px) rotate(-5deg);
-      }
-    }
-
-    @keyframes shakePad {
-      0%, 100% { transform: translateX(0); }
-      20% { transform: translateX(-9px); }
-      40% { transform: translateX(9px); }
-      60% { transform: translateX(-6px); }
-      80% { transform: translateX(6px); }
-    }
-
-    .shake-animation {
-      animation: shakePad 0.42s ease-in-out;
-    }
-
-    /* Clickable Padlock Animation */
-    .padlock-btn {
-      cursor: pointer;
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .padlock-btn:hover, .padlock-btn:active {
-      transform: scale(1.15) rotate(-6deg);
-    }
-
-    /* =========================================
-       3D LOVE & APOLOGY EXPERIENCE (UNLOCKED)
-       ========================================= */
-    #love-experience {
-      position: relative;
-      min-height: 100vh;
-      width: 100%;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 1.1s ease 0.25s;
-      color: #fff6f8;
-    }
-
-    #love-experience.visible {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    #three-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .content-layer {
-      position: relative;
-      z-index: 10;
-      perspective: 1200px;
-    }
-
-    .serif-display {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-    }
-
-    .cute-display {
-      font-family: 'Fredoka', sans-serif;
-    }
-
-    /* 3D Glassmorphism Letter Cards */
-    .love-3d-card {
-      background: linear-gradient(
-        145deg,
-        rgba(38, 16, 29, 0.78) 0%,
-        rgba(22, 9, 17, 0.86) 100%
-      );
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(244, 164, 184, 0.28);
-      box-shadow:
-        0 24px 50px rgba(0, 0, 0, 0.55),
-        inset 0 1px 0 rgba(255, 225, 234, 0.18);
-      border-radius: 28px;
-      transform-style: preserve-3d;
-      transition: transform 0.22s ease-out, box-shadow 0.3s ease;
-    }
-
-    .love-3d-card:hover {
-      box-shadow:
-        0 28px 60px rgba(216, 90, 127, 0.25),
-        inset 0 1px 0 rgba(255, 225, 234, 0.3);
-    }
-
-    .card-inner-depth {
-      transform: translateZ(20px);
-    }
-
-    /* Rose gold gradient text */
-    .rose-gold-text {
-      background: linear-gradient(135deg, #ffd6e0 0%, #f7a1b8 45%, #f5cba7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Action Buttons */
-    .love-action-btn {
-      background: linear-gradient(135deg, #e0527b 0%, #b8325a 100%);
-      border: 1px solid rgba(255, 210, 222, 0.4);
-      box-shadow: 0 10px 25px rgba(224, 82, 123, 0.4);
-      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
-    }
-
-    .love-action-btn:active {
-      transform: scale(0.94);
-    }
-
-    /* Floating Meow Companion in Corner after Unlock */
-    .floating-meow-buddy {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      z-index: 40;
-      width: 68px;
-      height: 68px;
-      cursor: pointer;
-      animation: catBobIdle 1.7s ease-in-out infinite;
-      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.6));
-    }
-
-    /* Floating emoji bursts */
-    .burst-particle {
-      position: fixed;
-      pointer-events: none;
-      z-index: 60;
-      font-size: 26px;
-      animation: floatUpBurst 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes floatUpBurst {
-      0% {
-        opacity: 1;
-        transform: translate(0, 0) scale(0.5) rotate(0deg);
-      }
-      60% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        transform: translate(var(--tx), var(--ty)) scale(1.45) rotate(var(--rot));
-      }
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #11070d;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(244, 164, 184, 0.35);
-      border-radius: 999px;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <!-- Hidden SVG ClipPath for Exact Heart Shape -->
-  <svg width="0" height="0" style="position:absolute;">
-    <defs>
-      <clipPath id="heartClipPath" clipPathUnits="objectBoundingBox">
-        <path d="M0.5,0.92 C0.47,0.89 0.04,0.61 0.04,0.31 C0.04,0.14 0.17,0.03 0.32,0.03 C0.41,0.03 0.47,0.08 0.5,0.14 C0.53,0.08 0.59,0.03 0.68,0.03 C0.83,0.03 0.96,0.14 0.96,0.31 C0.96,0.61 0.53,0.89 0.5,0.92 Z" />
-      </clipPath>
-    </defs>
-  </svg>
-
-  <!-- Hidden File Input so user can select their Orange Mirror Selfie directly from phone gallery -->
-  <input type="file" id="selfie-upload-input" accept="image/*" class="hidden" />
-
-  <!-- =========================================================
-       STAGE 1: ADORABLE PASSCODE LOCK SCREEN (CODE: 1331)
-       ========================================================= -->
+  <!-- ==================== 1. CUTE HEART LOCK SCREEN ==================== -->
   <div id="lock-screen">
-    <div class="wallpaper-sparkles"></div>
+    <div class="lock-container">
+      <div class="bow-decor">🎀</div>
 
-    <div class="relative z-10 w-full max-w-4xl flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 py-4">
-
-      <!-- Left / Top Section: Lace Heart Photo Frame + Bouncing Meow Cat -->
-      <div class="relative flex flex-col items-center">
-        <div class="heart-frame-wrapper" id="heart-frame">
-          <!-- Scalloped Lace Heart Border SVG -->
-          <svg class="lace-heart-svg" viewBox="0 0 200 186" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer Scallop Dotted Lace -->
-            <path
-              d="M100 173 C94 167 7 114 7 58 C7 25 33 5 64 5 C82 5 94 15 100 26 C106 15 118 5 136 5 C167 5 193 25 193 58 C193 114 106 167 100 173 Z"
-              stroke="#e597aa"
-              stroke-width="6"
-              stroke-dasharray="2 6"
-              stroke-linecap="round"
-            />
-            <!-- Inner Cream Scallop Rim -->
-            <path
-              d="M100 169 C94 163 11 112 11 58 C11 28 35 9 64 9 C81 9 93 18 100 29 C107 18 119 9 136 9 C165 9 189 28 189 58 C189 112 106 163 100 169 Z"
-              stroke="#fcf5f7"
-              stroke-width="4.5"
-            />
-            <!-- Delicate Pink Inner Line -->
-            <path
-              d="M100 166 C94 160 14 110 14 58 C14 30 37 12 64 12 C80 12 92 20 100 31 C108 20 120 12 136 12 C163 12 186 30 186 58 C186 110 106 160 100 166 Z"
-              stroke="#e48ea4"
-              stroke-width="1.8"
-            />
-          </svg>
-
-          <!-- Heart Clipped Photo (Loads mirror-selfie.jpg or user-selected gallery image) -->
-          <div class="heart-photo-clip" id="heart-photo-container">
-            <img
-              id="lock-heart-img"
-              src="mirror-selfie.jpg"
-              alt="Our Orange Mirror Selfie"
-              onerror="this.style.display='none'; document.getElementById('mirror-fallback-art').style.display='flex';"
-            />
-            <!-- Aesthetic Illustrated Mirror Selfie Fallback (Matches Orange Wall & Couple Pose) -->
-            <div id="mirror-fallback-art" style="display:none;" class="w-full h-full flex-col items-center justify-center text-center p-4 bg-gradient-to-b from-[#d6643c] via-[#b84a27] to-[#4a1c10]">
-              <div class="text-4xl mb-1">🪞🧡</div>
-              <p class="cute-display text-white text-sm font-bold drop-shadow">Our Orange Mirror Selfie</p>
-              <p class="text-[11px] text-orange-100/90 mt-1 max-w-[160px] leading-tight">
-                Tap "Add Photo" below to put our mirror selfie inside the heart ❤️
-              </p>
-            </div>
-          </div>
-
-          <!-- Discreet 1-Tap Photo Picker Button -->
-          <button type="button" id="pick-photo-btn" class="photo-change-badge" title="Select our mirror selfie">
-            <span>📷</span>
-            <span>Our Photo</span>
-          </button>
-        </div>
-
-        <!-- Cute Bouncing Grey Kitten ("Meow") with Rosy Cheeks & Pink Bow -->
-        <div id="meow-cat" class="meow-cat-container -mt-12 md:-mt-16 md:-mr-44 select-none" title="Tap Meow! 🐱">
-          <svg width="118" height="106" viewBox="0 0 140 125" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Ears -->
-            <path d="M36 44 L26 14 L56 30 Z" fill="#cfd4dc" stroke="#8f96a3" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M38 39 L32 21 L50 31 Z" fill="#f7b2c4"/>
-            <path d="M104 44 L114 14 L84 30 Z" fill="#cfd4dc" stroke="#8f96a3" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M102 39 L108 21 L90 31 Z" fill="#f7b2c4"/>
-
-            <!-- Fluffy Head -->
-            <ellipse cx="70" cy="60" rx="42" ry="34" fill="#dfe3ea" stroke="#8f96a3" stroke-width="2.5"/>
-            <!-- Forehead Tiger Stripes -->
-            <path d="M64 28 L64 37" stroke="#8f96a3" stroke-width="2.8" stroke-linecap="round"/>
-            <path d="M70 27 L70 39" stroke="#8f96a3" stroke-width="2.8" stroke-linecap="round"/>
-            <path d="M76 28 L76 37" stroke="#8f96a3" stroke-width="2.8" stroke-linecap="round"/>
-
-            <!-- Big Sparkling Puppy-Cat Eyes -->
-            <circle cx="53" cy="57" r="7.5" fill="#1e1b24"/>
-            <circle cx="50.5" cy="54.5" r="2.6" fill="#ffffff"/>
-            <circle cx="55" cy="59" r="1.2" fill="#ffffff"/>
-
-            <circle cx="87" cy="57" r="7.5" fill="#1e1b24"/>
-            <circle cx="84.5" cy="54.5" r="2.6" fill="#ffffff"/>
-            <circle cx="89" cy="59" r="1.2" fill="#ffffff"/>
-
-            <!-- Rosy Pink Blush Cheeks -->
-            <ellipse cx="41" cy="66" rx="7.5" ry="4.5" fill="#ff8fab" opacity="0.75"/>
-            <ellipse cx="99" cy="66" rx="7.5" ry="4.5" fill="#ff8fab" opacity="0.75"/>
-
-            <!-- Cute Pink Nose & ":3" Mouth -->
-            <path d="M67 64 L73 64 L70 67.5 Z" fill="#f27999"/>
-            <path d="M62 70 Q66 74 70 68 Q74 74 78 70" stroke="#5c5666" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-
-            <!-- Cute Little Paws Held Up -->
-            <ellipse cx="55" cy="96" rx="13" ry="11" fill="#e8ecf2" stroke="#8f96a3" stroke-width="2.2"/>
-            <circle cx="55" cy="94" r="3.5" fill="#f7a8bc"/>
-            <circle cx="49" cy="90" r="1.8" fill="#f7a8bc"/>
-            <circle cx="55" cy="88.5" r="1.8" fill="#f7a8bc"/>
-            <circle cx="61" cy="90" r="1.8" fill="#f7a8bc"/>
-
-            <ellipse cx="85" cy="96" rx="13" ry="11" fill="#e8ecf2" stroke="#8f96a3" stroke-width="2.2"/>
-            <circle cx="85" cy="94" r="3.5" fill="#f7a8bc"/>
-            <circle cx="79" cy="90" r="1.8" fill="#f7a8bc"/>
-            <circle cx="85" cy="88.5" r="1.8" fill="#f7a8bc"/>
-            <circle cx="91" cy="90" r="1.8" fill="#f7a8bc"/>
-
-            <!-- Cute Pink Ribbon Bow on Right Ear -->
-            <g transform="translate(94, 24) rotate(18)">
-              <path d="M0 8 L-12 0 L-10 15 Z" fill="#f27a9c" stroke="#c94b72" stroke-width="1.5" stroke-linejoin="round"/>
-              <path d="M0 8 L12 0 L10 15 Z" fill="#f27a9c" stroke="#c94b72" stroke-width="1.5" stroke-linejoin="round"/>
-              <circle cx="0" cy="8" r="4" fill="#ff9eb8" stroke="#c94b72" stroke-width="1.5"/>
-            </g>
-          </svg>
-          <div id="meow-speech" class="text-center -mt-2">
-            <span class="inline-block bg-white/95 text-[#c95273] cute-display text-xs font-bold px-3 py-0.5 rounded-full shadow border border-pink-200">
-              Meoww~ Enter 1331 🥺🐾
-            </span>
+      <!-- Left Side: Heart Frame with Your Orange Mirror Selfie -->
+      <div class="heart-side">
+        <div class="heart-frame-wrapper">
+          <div class="heart-scallop-bg"></div>
+          <div class="heart-photo-box">
+            <img src="WhatsApp Image 2026-11-23 at 3.35.59 AM (1).jpeg" alt="Us Together">
           </div>
         </div>
+        <div class="heart-caption">Meraa Chhotuuu Pilluuu 🥺❤️</div>
       </div>
 
-      <!-- Right / Bottom Section: Scalloped Passcode Pad -->
-      <div id="passcode-card" class="scalloped-pad-card">
-        <!-- Decorative Pink Ribbon Bow -->
-        <svg class="ribbon-bow" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M40 36 C25 16 8 24 16 40 C22 50 35 42 40 36 Z" fill="#f39cb2" stroke="#d46380" stroke-width="2.5"/>
-          <path d="M40 36 C55 16 72 24 64 40 C58 50 45 42 40 36 Z" fill="#f39cb2" stroke="#d46380" stroke-width="2.5"/>
-          <path d="M36 40 C28 54 22 66 18 72" stroke="#e47c97" stroke-width="5" stroke-linecap="round"/>
-          <path d="M44 40 C52 54 58 66 62 72" stroke="#e47c97" stroke-width="5" stroke-linecap="round"/>
-          <circle cx="40" cy="37" r="6" fill="#e47c97" stroke="#d46380" stroke-width="2"/>
-        </svg>
+      <!-- Right Side: Interactive Keypad Lock -->
+      <div class="keypad-side">
+        <button class="padlock-btn" id="padlock-icon" title="Click to unlock!" onclick="focusLock()">🔒</button>
+        <div class="passcode-label">Enter passcode</div>
 
-        <!-- Clickable Padlock Icon -->
-        <div class="flex flex-col items-center mb-2">
-          <button type="button" id="padlock-icon-btn" class="padlock-btn bg-transparent border-none p-1" title="Click Padlock for Hint">
-            <svg id="padlock-svg" width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Shackle -->
-              <path id="padlock-shackle" d="M9 15 V10 C9 6.13401 12.134 3 16 3 C19.866 3 23 6.13401 23 10 V15" stroke="#d65c7d" stroke-width="3.2" stroke-linecap="round"/>
-              <!-- Lock Body -->
-              <rect x="5" y="14" width="22" height="19" rx="4" fill="#d65c7d"/>
-              <!-- Keyhole -->
-              <circle cx="16" cy="22" r="2.2" fill="#fcf6f4"/>
-              <path d="M16 23.5 V27" stroke="#fcf6f4" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-          </button>
-          <p id="passcode-prompt" class="text-[#c95273] text-lg font-bold tracking-wide mt-0.5">
-            Enter passcode
-          </p>
+        <div class="pin-boxes" id="pin-boxes">
+          <div class="pin-box" id="box-0"></div>
+          <div class="pin-box" id="box-1"></div>
+          <div class="pin-box" id="box-2"></div>
+          <div class="pin-box" id="box-3"></div>
         </div>
 
-        <!-- 4 Pink Indicator Boxes -->
-        <div class="flex items-center justify-center gap-2.5 mb-4">
-          <div class="pass-box" id="box-0"></div>
-          <div class="pass-box" id="box-1"></div>
-          <div class="pass-box" id="box-2"></div>
-          <div class="pass-box" id="box-3"></div>
+        <div class="numpad">
+          <button class="num-btn" onclick="pressDigit('1')">1</button>
+          <button class="num-btn" onclick="pressDigit('2')">2</button>
+          <button class="num-btn" onclick="pressDigit('3')">3</button>
+          <button class="num-btn" onclick="pressDigit('4')">4</button>
+          <button class="num-btn" onclick="pressDigit('5')">5</button>
+          <button class="num-btn" onclick="pressDigit('6')">6</button>
+          <button class="num-btn" onclick="pressDigit('7')">7</button>
+          <button class="num-btn" onclick="pressDigit('8')">8</button>
+          <button class="num-btn" onclick="pressDigit('9')">9</button>
+          <button class="num-btn" onclick="clearPin()">*</button>
+          <button class="num-btn" onclick="pressDigit('0')">0</button>
+          <button class="num-btn" onclick="backspacePin()">⌫</button>
         </div>
 
-        <!-- 3x4 Keypad Grid -->
-        <div class="grid grid-cols-3 gap-y-2.5 gap-x-2 mb-3.5">
-          <button type="button" class="key-btn" data-key="1"><span>1</span></button>
-          <button type="button" class="key-btn" data-key="2"><span>2</span></button>
-          <button type="button" class="key-btn" data-key="3"><span>3</span></button>
-
-          <button type="button" class="key-btn" data-key="4"><span>4</span></button>
-          <button type="button" class="key-btn" data-key="5"><span>5</span></button>
-          <button type="button" class="key-btn" data-key="6"><span>6</span></button>
-
-          <button type="button" class="key-btn" data-key="7"><span>7</span></button>
-          <button type="button" class="key-btn" data-key="8"><span>8</span></button>
-          <button type="button" class="key-btn" data-key="9"><span>9</span></button>
-
-          <button type="button" class="key-btn symbol" data-key="clear" title="Clear"><span>*</span></button>
-          <button type="button" class="key-btn" data-key="0"><span>0</span></button>
-          <button type="button" class="key-btn symbol" data-key="back" title="Delete"><span>#</span></button>
-        </div>
-
-        <!-- Enter Pill Button -->
-        <div class="flex justify-center">
-          <button type="button" id="enter-pass-btn" class="enter-pill-btn">
-            Enter
-          </button>
-        </div>
+        <button class="enter-btn" onclick="checkPasscode()">Enter</button>
+        <div class="hint-text" id="lock-hint">Hint: Our special 4 digits (1331) 💗</div>
       </div>
-
     </div>
   </div>
 
-  <!-- =========================================================
-       STAGE 2: 3D APOLOGY & LOVE EXPERIENCE (AFTER UNLOCKING)
-       ========================================================= -->
-  <div id="love-experience">
-    <!-- Three.js Full-Screen 3D Canvas -->
-    <canvas id="three-canvas"></canvas>
-
-    <!-- Floating Cute Meow Companion (Tap anytime for kisses & hearts!) -->
-    <div id="floating-meow-buddy" class="floating-meow-buddy" title="Tap Pillu's Meow for Kissii 💋">
-      <svg viewBox="0 0 140 125" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M36 44 L26 14 L56 30 Z" fill="#cfd4dc" stroke="#f4a4b8" stroke-width="3" stroke-linejoin="round"/>
-        <path d="M104 44 L114 14 L84 30 Z" fill="#cfd4dc" stroke="#f4a4b8" stroke-width="3" stroke-linejoin="round"/>
-        <ellipse cx="70" cy="60" rx="42" ry="34" fill="#dfe3ea" stroke="#f4a4b8" stroke-width="3"/>
-        <circle cx="53" cy="57" r="7.5" fill="#1e1b24"/>
-        <circle cx="50.5" cy="54.5" r="2.6" fill="#ffffff"/>
-        <circle cx="87" cy="57" r="7.5" fill="#1e1b24"/>
-        <circle cx="84.5" cy="54.5" r="2.6" fill="#ffffff"/>
-        <ellipse cx="41" cy="66" rx="7.5" ry="4.5" fill="#ff8fab" opacity="0.85"/>
-        <ellipse cx="99" cy="66" rx="7.5" ry="4.5" fill="#ff8fab" opacity="0.85"/>
-        <path d="M67 64 L73 64 L70 67.5 Z" fill="#f27999"/>
-        <path d="M62 70 Q66 74 70 68 Q74 74 78 70" stroke="#5c5666" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <g transform="translate(94, 24) rotate(18)">
-          <path d="M0 8 L-12 0 L-10 15 Z" fill="#f27a9c" stroke="#fff" stroke-width="1.5"/>
-          <path d="M0 8 L12 0 L10 15 Z" fill="#f27a9c" stroke="#fff" stroke-width="1.5"/>
-          <circle cx="0" cy="8" r="4" fill="#ff9eb8"/>
+  <!-- ==================== 2. MEOW BOUNCING OVERLAY ==================== -->
+  <div id="meow-overlay">
+    <div class="meow-bubble">Meowww! Unlocking Babbie's Heart... 🐾💖</div>
+    <div class="cute-cat-wrapper">
+      <!-- Cute Kitten SVG matching your screenshot -->
+      <svg class="cat-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ears -->
+        <polygon points="45,75 35,25 80,55" fill="#d9dfe6" stroke="#8d99ae" stroke-width="4" stroke-linejoin="round"/>
+        <polygon points="48,68 42,35 72,56" fill="#ffb3c6"/>
+        <polygon points="155,75 165,25 120,55" fill="#d9dfe6" stroke="#8d99ae" stroke-width="4" stroke-linejoin="round"/>
+        <polygon points="152,68 158,35 128,56" fill="#ffb3c6"/>
+        <!-- Head -->
+        <ellipse cx="100" cy="105" rx="65" ry="55" fill="#edf2f4" stroke="#8d99ae" stroke-width="4"/>
+        <!-- Stripes -->
+        <path d="M92 52 L92 68 M100 50 L100 70 M108 52 L108 68" stroke="#8d99ae" stroke-width="4" stroke-linecap="round"/>
+        <!-- Cute Pink Bow -->
+        <g transform="translate(138, 52) rotate(22)">
+          <polygon points="0,0 -18,-12 -18,12" fill="#ff758f"/>
+          <polygon points="0,0 18,-12 18,12" fill="#ff758f"/>
+          <circle cx="0" cy="0" r="6" fill="#ff4d6d"/>
         </g>
+        <!-- Eyes -->
+        <circle cx="76" cy="98" r="10" fill="#1d1e2c"/>
+        <circle cx="73" cy="95" r="3.5" fill="#ffffff"/>
+        <circle cx="124" cy="98" r="10" fill="#1d1e2c"/>
+        <circle cx="121" cy="95" r="3.5" fill="#ffffff"/>
+        <!-- Blush -->
+        <ellipse cx="62" cy="112" rx="11" ry="6" fill="#ff8fab" opacity="0.75"/>
+        <ellipse cx="138" cy="112" rx="11" ry="6" fill="#ff8fab" opacity="0.75"/>
+        <!-- Nose & Mouth -->
+        <polygon points="96,110 104,110 100,115" fill="#ff758f"/>
+        <path d="M90 118 Q95 125 100 118 Q105 125 110 118" fill="none" stroke="#4a4e69" stroke-width="3" stroke-linecap="round"/>
+        <!-- Cute Paws -->
+        <ellipse cx="75" cy="155" rx="18" ry="14" fill="#edf2f4" stroke="#8d99ae" stroke-width="3"/>
+        <circle cx="75" cy="155" r="5" fill="#ffb3c6"/>
+        <ellipse cx="125" cy="155" rx="18" ry="14" fill="#edf2f4" stroke="#8d99ae" stroke-width="3"/>
+        <circle cx="125" cy="155" r="5" fill="#ffb3c6"/>
       </svg>
     </div>
+  </div>
 
-    <!-- Main Scrollable 3D Content Layer -->
-    <main class="content-layer max-w-2xl mx-auto px-4 pt-10 pb-28 space-y-8">
+  <!-- ==================== 3. 3D APOLOGY & LOVE UNIVERSE ==================== -->
+  <div id="main-universe">
+    <div class="floating-bg" id="floating-bg"></div>
 
-      <!-- Hero Header + 3D Floating Memory Photo Card -->
-      <header class="text-center space-y-4 pt-2">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/15 border border-pink-300/30 text-pink-200 text-xs font-semibold tracking-wider uppercase">
-          <span>Unlocked With Love • 1331</span>
-          <span>❤️</span>
-        </div>
+    <!-- 3D Hero Section -->
+    <header class="hero-3d-header tilt-card">
+      <div class="hero-badge">GOOD MORNING MERAA CHHOTUUU PILLUUUU ☀️❤️</div>
+      <h1 class="hero-title">I Am Shooo Shollyyy Melaa Bacchaaa 🥺💋</h1>
+      <p class="hero-sub">Wake up with a smile my princess... every single word below is straight from my heart for you.</p>
+      <div class="hero-photo-3d">
+        <img src="WhatsApp Image 2026-11-23 at 3.35.59 AM (1).jpeg" alt="Meraa Chhotuuu Pilluuu">
+      </div>
+    </header>
 
-        <h1 class="serif-display text-4xl sm:text-5xl font-bold rose-gold-text leading-tight">
-          I Am Shollyy Mera Chhotuu Saa Pilluuuu 🥺❤️
-        </h1>
+    <!-- 3D Cards Container with EVERY SINGLE WORD intact -->
+    <main class="cards-3d-stage">
 
-        <p class="text-pink-100/80 text-sm sm:text-base max-w-md mx-auto leading-relaxed">
-          Swipe & tilt the 3D cards below, meri jaan... har ek word sirf mere chhotu babbie ke liye hai 🫶🏻
-        </p>
-
-        <!-- 3D Memory Frame showing the Orange Mirror Selfie -->
-        <div class="pt-3 flex justify-center">
-          <div class="love-3d-card tilt-card p-3 max-w-[260px] w-full">
-            <div class="relative rounded-2xl overflow-hidden aspect-[4/5] border border-pink-300/30 bg-gradient-to-b from-[#d6643c] to-[#4a1c10]">
-              <img
-                id="story-mirror-img"
-                src="mirror-selfie.jpg"
-                alt="My Favorite Wallpaper"
-                class="w-full h-full object-cover object-top"
-                onerror="this.style.display='none'; document.getElementById('story-img-fallback').style.display='flex';"
-              />
-              <div id="story-img-fallback" style="display:none;" class="w-full h-full flex-col items-center justify-center p-4 text-center">
-                <span class="text-4xl mb-2">🧡📸</span>
-                <p class="cute-display text-sm text-white">Mera Wallpaper • Meri Jaan</p>
-              </div>
-              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-3 text-left">
-                <p class="cute-display text-xs text-pink-200">Mera Stress Buster 🥺🫶🏻</p>
-                <p class="text-[11px] text-white/80">Hamesha wallpaper lagake rakha huu ❤️</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <!-- SECTION 1: THE APOLOGY -->
-      <section class="love-3d-card tilt-card p-6 sm:p-8">
-        <div class="card-inner-depth space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-widest text-pink-300/80">Chapter 01 • Dil Se Sorry</span>
-            <span class="text-2xl">💋🥺</span>
-          </div>
-          <h2 class="serif-display text-2xl sm:text-3xl font-bold rose-gold-text">
-            I Am Shollyy Mera Pilluuuu 🥺
-          </h2>
-          <p class="text-pink-50/95 text-[15px] sm:text-base leading-[1.8] font-normal">
-            Babbyyy melaaa bacchaaa meraaa chhotuuu saaa babbieee meraa chhotuuu saaa pilluuuu i loveeee youuuu shooo muchhhh 💋🥺 babbieee i amm shollyyy meraaa pilluuuuu mainee gusshaaa karr diyaaaa idk kii jab bhi me aap pe gusshaa karr detaa huu toh mujhe instant regret hota haii hameshaa yaa firr roo detaa hu kyukiii uk aap meree chhhotuuu babbyy hooo mee aap prr gusshaa krr to duu lekin me aapko guusshee me rakh nhi sktaaa yaa aapko rulaane ki koshish nhi krtaaaa cozzzz i loveee youuuu shoo muchhh
-          </p>
+      <!-- Card 1 -->
+      <section class="love-card-3d tilt-card">
+        <div class="card-chapter">💌 Part 01 • Dil Se Maafi</div>
+        <h2 class="card-heading">Babbyyy melaaa bacchaaa... 🥺💋</h2>
+        <div class="card-body">
+          Babbyyy melaaa bacchaaa meraaa chhotuuu saaa babbieee meraa chhotuuu saaa pilluuuu i loveeee youuuu shooo muchhhh 💋🥺 babbieee i amm shollyyy meraaa pilluuuuu mainee gusshaaa karr diyaaaa idk kii jab bhi me aap pe gusshaa karr detaa huu toh mujhe instant regret hota haii hameshaa yaa firr roo detaa hu kyukiii uk aap meree chhhotuuu babbyy hooo mee aap prr gusshaa krr to duu lekin me aapko guusshee me rakh nhi sktaaa yaa aapko rulaane ki koshish nhi krtaaaa cozzzz i loveee youuuu shoo muchhh
         </div>
       </section>
 
-      <!-- SECTION 2: UNDERSTANDING & OVERTHINKING -->
-      <section class="love-3d-card tilt-card p-6 sm:p-8">
-        <div class="card-inner-depth space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-widest text-pink-300/80">Chapter 02 • Sirf Aap Nhi Mai Bhi</span>
-            <span class="text-2xl">🫶🏻🥺</span>
-          </div>
-          <h2 class="serif-display text-2xl sm:text-3xl font-bold rose-gold-text">
-            Hum Dono Paglii Hain 🫶🏻
-          </h2>
-          <p class="text-pink-50/95 text-[15px] sm:text-base leading-[1.8]">
-            I loveeee youuuu shooo muchhh myyy chhotuu babbieeeeee dekhoo kabhi kabhii life me aise bhot situations aayegii ki humari baat nhi hori koii kaam ya padhaii yaa familyy but unintentionally lekinn hum thodi kam baat krre hai time k wajhaa seee but we lovee each other sooo muchhh and we care for each other soo muchh toh hum jyaada overthinking krte hai sirff aap nhi paglii maii bhi kyukiii aap to mere chhotuu babbiee ho naa meree dimag me to hameshaa rehta hai kii meraaa chhotuuu shaaa bacchaa meraa chhotuuu shaaa pilluuu kyaa krra hogaa aurr aaj tohh uthee see apne thole tholee kaleshh huee aapni baat jyaada nhi huii i am soo sorryyy forrr thatt meraa pilluuu lekinn aapko sab malum haii kyaa hua thaa kyaaa nhii aurr aapko lagaa kii me chidd chidd kalla thaa lekinn shonaaa aapko ptaa hai n meri tonee kaise jaatii haii toh waisaa lagraa tha ki me chid chidd krra hu lekin mummyy kasam chid nhi rahaa tha meraa pillluuu
-          </p>
+      <!-- Card 2 -->
+      <section class="love-card-3d tilt-card">
+        <div class="card-chapter">🫶🏻 Part 02 • Overthinking & Aaj Ka Din</div>
+        <h2 class="card-heading">Sirff aap nhi paglii, maii bhi overthink krta hu...</h2>
+        <div class="card-body">
+          I loveeee youuuu shooo muchhh myyy chhotuu babbieeeeee dekhoo kabhi kabhii life me aise bhot situations aayegii ki humari baat nhi hori koii kaam ya padhaii yaa familyy but unintentionally lekinn hum thodi kam baat krre hai time k wajhaa seee but we lovee each other sooo muchhh and we care for each other soo muchh toh hum jyaada overthinking krte hai sirff aap nhi paglii maii bhi kyukiii aap to mere chhotuu babbiee ho naa meree dimag me to hameshaa rehta hai kii meraaa chhotuuu shaaa bacchaa meraa chhotuuu shaaa pilluuu kyaa krra hogaa aurr aaj tohh uthee see apne thole tholee kaleshh huee aapni baat jyaada nhi huii i am soo sorryyy forrr thatt meraa pilluuu lekinn aapko sab malum haii kyaa hua thaa kyaaa nhii aurr aapko lagaa kii me chidd chidd kalla thaa lekinn shonaaa aapko ptaa hai n meri tonee kaise jaatii haii toh waisaa lagraa tha ki me chid chidd krra hu lekin mummyy kasam chid nhi rahaa tha meraa pillluuu
         </div>
       </section>
 
-      <!-- SECTION 3: CHANGING FOR YOU -->
-      <section class="love-3d-card tilt-card p-6 sm:p-8">
-        <div class="card-inner-depth space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-widest text-pink-300/80">Chapter 03 • Tere Liye</span>
-            <span class="text-2xl">🥹🫶🏻</span>
+      <!-- Card 3 -->
+      <section class="love-card-3d tilt-card">
+        <div class="card-chapter">🥹 Part 03 • Tere Liyee Badall Rahaa Huu</div>
+        <h2 class="card-heading">Kyaa mohabbatt hoo gyii hai ki sirfff terii he baatein krreee 🫶🏻</h2>
+        <div class="card-body">
+          aurr aapko toh bhot acche se pta hai n melaa babbiee ki me phle se kitnaa shudhraa huu phle aap har roz bolte the tone thik krne k lie roz chilla dete thee lekin abb dekhoo kii abhi ye kitnaa kam hogyaa haii ki mera tone thik hua tholaa tholaa lekin mujhe lgraa haii shonaa aapke wajhaa se me sudhaarr raha huu tere liyee badall raha huu 🥹 kyaa mohabbatt hoo gyii hai ki sirfff terii he baatein krreee 🫶🏻🥺
+          <div class="highlight-box">
+            Meraa babbieee meraaa chhotuuu shaaa bacchaaa ALWAYSS KNOWW KII LIFEE ME AAPKE KITNE BHI UPS AND DOWNSS AAJAYEE ME AAPKE SAATH RAHUGAA HAMESHAAA , HUMESHAA PYAARRR KRTAA RAHUGAAA BHOTTT SHAALAA DHELLL SHAALAAA AND I WILL ALWAYS SUPPORT YOUU HAMESHAA SATH RAHUGAA HARR CHEEZEIN KRUGAAA AURR SUDHARR JAUGAA<br>
+            COZZ I LOVEEEEEEEE YOUUUUUU SHOOO MUCHHHHH MYYY CHHOTUUUU BABBIEEEEEE 🥹🫶🏻🫂🥺😘❤️🌹
           </div>
-          <h2 class="serif-display text-2xl sm:text-3xl font-bold rose-gold-text">
-            Tere Liye Badal Raha Huu 🥹
-          </h2>
-          <p class="text-pink-50/95 text-[15px] sm:text-base leading-[1.8]">
-            aurr aapko toh bhot acche se pta hai n melaa babbiee ki me phle se kitnaa shudhraa huu phle aap har roz bolte the tone thik krne k lie roz chilla dete thee lekin abb dekhoo kii abhi ye kitnaa kam hogyaa haii ki mera tone thik hua tholaa tholaa lekin mujhe lgraa haii shonaa aapke wajhaa se me sudhaarr raha huu tere liyee badall raha huu 🥹 kyaa mohabbatt hoo gyii hai ki sirfff terii he baatein krreee 🫶🏻🥺
-          </p>
         </div>
       </section>
 
-      <!-- SECTION 4: ALWAYS BY YOUR SIDE -->
-      <section class="love-3d-card tilt-card p-6 sm:p-8">
-        <div class="card-inner-depth space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-widest text-pink-300/80">Chapter 04 • Mera Promise</span>
-            <span class="text-2xl">🫂❤️🌹</span>
-          </div>
-          <h2 class="serif-display text-2xl sm:text-3xl font-bold rose-gold-text">
-            Hamesha Sath Rahuga ❤️🌹
-          </h2>
-          <p class="text-pink-50/95 text-[15px] sm:text-base leading-[1.8]">
-            Meraa babbieee meraaa chhotuuu shaaa bacchaaa ALWAYSS KNOWW KII LIFEE ME AAPKE KITNE BHI UPS AND DOWNSS AAJAYEE ME AAPKE SAATH RAHUGAA HAMESHAAA , HUMESHAA PYAARRR KRTAA RAHUGAAA BHOTTT SHAALAA DHELLL SHAALAAA AND I WILL ALWAYS SUPPORT YOUU HAMESHAA SATH RAHUGAA HARR CHEEZEIN KRUGAAA AURR SUDHARR JAUGAA COZZ I LOVEEEEEEEE YOUUUUUU SHOOO MUCHHHHH MYYY CHHOTUUUU BABBIEEEEEE 🥹🫶🏻🫂🥺😘❤️🌹 Always knoww ki ghrwale aurr harr jaghaa jahaa se bhi stress ayee hamesha yaad rakhnaa kii babyyy hameshaa apke sath haii and babyyy hameshaa aapko shant kregaa samjhayegaa babbyy hameshaaa pyaarr kregaa babbbyy sabbb kregaaa cozzzzz babbieeee loveesssss youuuuu shoooo muchhh meraaa chhotuuu saa pilluuuuu🫂🥺
-          </p>
+      <!-- Card 4 -->
+      <section class="love-card-3d tilt-card">
+        <div class="card-chapter">🤫 Part 04 • Meraa Ek Secret & Meraa Wallpaper</div>
+        <h2 class="card-heading">Jab bhi frustrate hota hu, terii photo dekhtaa hu... 🥹</h2>
+        <div class="card-body">
+          Always knoww ki ghrwale aurr harr jaghaa jahaa se bhi stress ayee hamesha yaad rakhnaa kii babyyy hameshaa apke sath haii and babyyy hameshaa aapko shant kregaa samjhayegaa babbyy hameshaaa pyaarr kregaa babbbyy sabbb kregaaa cozzzzz babbieeee loveesssss youuuuu shoooo muchhh meraaa chhotuuu saa pilluuuuu🫂🥺 ek baat btauu secret? Jabb meko lagta hai jab sab se me frustrated ho jaata hu like ghrwale dost ya koi bahar ki lachaand mee na hameshaa aapkii photo dekhtaa hu jo Hamesha wallpaper lagake rakhaaa huu kii bc yee meraa chhhotuu babbiee haii iskee liyee sab krnaa haii aurr photoo dekh k meraa saara frustation chala jaata haii kii meraa chhotuuu babbieee pyaalaaa shaaaaaa chhotuuu shaa pilluuuu haii kitnaa shundall haii pyaalaaa haiii meraa chotuuu shaa baacchaaa merii chhotuuu shii bacchiii 🥹🫶🏻 I LOVEEEEE YOUUUUU SHOOOO MUCHHHHHHHHHHHHHH MERIIIII CHHHOTUUUUU SIII BACCHIIIII MERAAA PIDDDIIII BACCHAAAA MERAA PILLUUUUUUUUUUU<br>
+          MWAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH<br>
+          💋💋💋💋🫶🏻🫶🏻🥹🥹😍😍😘😘🫂💍💍💍🐣🐣🍼🍼
         </div>
       </section>
 
-      <!-- SECTION 5: MY SECRET WALLPAPER -->
-      <section class="love-3d-card tilt-card p-6 sm:p-8">
-        <div class="card-inner-depth space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-widest text-pink-300/80">Chapter 05 • Ek Secret Btauu?</span>
-            <span class="text-2xl">💍🐣🍼</span>
-          </div>
-          <h2 class="serif-display text-2xl sm:text-3xl font-bold rose-gold-text">
-            Mera Stress Buster 🥺🫶🏻
-          </h2>
-          <p class="text-pink-50/95 text-[15px] sm:text-base leading-[1.8]">
-            ek baat btauu secret? Jabb meko lagta hai jab sab se me frustrated ho jaata hu like ghrwale dost ya koi bahar ki lachaand mee na hameshaa aapkii photo dekhtaa hu jo Hamesha wallpaper lagake rakhaaa huu kii bc yee meraa chhhotuu babbiee haii iskee liyee sab krnaa haii aurr photoo dekh k meraa saara frustation chala jaata haii kii meraa chhotuuu babbieee pyaalaaa shaaaaaa chhotuuu shaa pilluuuu haii kitnaa shundall haii pyaalaaa haiii meraa chotuuu shaa baacchaaa merii chhotuuu shii bacchiii 🥹🫶🏻 I LOVEEEEE YOUUUUU SHOOOO MUCHHHHHHHHHHHHHH MERIIIII CHHHOTUUUUU SIII BACCHIIIII MERAAA PIDDDIIII BACCHAAAA MERAA PILLUUUUUUUUUUU MWAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH 💋💋💋💋🫶🏻🫶🏻🥹🥹😍😍😘😘🫂💍💍💍🐣🐣🍼🍼
-          </p>
+      <!-- Card 5 -->
+      <section class="love-card-3d tilt-card">
+        <div class="card-chapter">👑 Part 05 • Proud To Be Yours Forever</div>
+        <h2 class="card-heading">Mujhee toh proudd hota hai koi mujhe joruu kaa gulam bol de tohh 🥹</h2>
+        <div class="card-body">
+          Babbyyyy usdinn btayaaa thaaa n wo meraa ek dost bolraaa thaaa kii joruu kaa gulamm bc log kyoo sochtee haii ki joru ka gulam banne me bezzati hotii mujhee toh proudd hota hai koi mujhe joruu kaa gulam bol de tohh 🥹<br><br>
+          Babbyy i know me kabhi kabhii bhot jyaadaa gusshaa dilaa detaaa huu kabhii kabhii bhot chid chid krtaa hu kabhi kabhi rudely baat krtaaa huu lekinn as compared to phlee me jaisaa thaa kitnaa badal gyaa huu jaisaaa apko chahiyee waisaa horaaa huuu aapko bhi difference dikhraa hogaa na kii phlee aap kitna overthink krte thee kitnaa gusshaa krta thaa me meri harkatein kaisii thii aurr ab kaisiii haiii see babbyy kitnaa changee hogyaa huu aapke liyee ginwaa nhii rahaa pilluuu likeee mere pov se dekhugaa toh see toh kitne changes huee mere me kitna kam gussa krtaa hu phle kitna jyada gusssa krta thaa chid chid krtaa thaa kch n kch krtaa tha and shand 😭😂<br><br>
+          Seee bbabbieee dheere dheere changee horaaa huu pilluuuuu aapke liee jaishaaa aap bolooo vaisaa krugaaa jaisee aap boloo vaisaaa bann jaaugaaa I AMMM SHOOO SHOLLYYYYYY MYYY PILLLUUUUUUU 🥺
         </div>
       </section>
 
-      <!-- SECTION 6: PROUD TO BE YOURS -->
-      <section class="love-3d-card tilt-card p-6 sm:p-8">
-        <div class="card-inner-depth space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-widest text-pink-300/80">Chapter 06 • Proudly Yours</span>
-            <span class="text-2xl">🥹😂❤️</span>
-          </div>
-          <h2 class="serif-display text-2xl sm:text-3xl font-bold rose-gold-text">
-            Joruu Ka Gulam 🥹😂
-          </h2>
-          <p class="text-pink-50/95 text-[15px] sm:text-base leading-[1.8]">
-            Babbyyyy usdinn btayaaa thaaa n wo meraa ek dost bolraaa thaaa kii joruu kaa gulamm bc log kyoo sochtee haii ki joru ka gulam banne me bezzati hotii mujhee toh proudd hota hai koi mujhe joruu kaa gulam bol de tohh 🥹 Babbyy i know me kabhi kabhii bhot jyaadaa gusshaa dilaa detaaa huu kabhii kabhii bhot chid chid krtaa hu kabhi kabhi rudely baat krtaaa huu lekinn as compared to phlee me jaisaa thaa kitnaa badal gyaa huu jaisaaa apko chahiyee waisaa horaaa huuu aapko bhi difference dikhraa hogaa na kii phlee aap kitna overthink krte thee kitnaa gusshaa krta thaa me meri harkatein kaisii thii aurr ab kaisiii haiii see babbyy kitnaa changee hogyaa huu aapke liyee ginwaa nhii rahaa pilluuu likeee mere pov se dekhugaa toh see toh kitne changes huee mere me kitna kam gussa krtaa hu phle kitna jyada gusssa krta thaa chid chid krtaa thaa kch n kch krtaa tha and shand 😭😂 Seee bbabbieee dheere dheere changee horaaa huu pilluuuuu aapke liee jaishaaa aap bolooo vaisaa krugaaa jaisee aap boloo vaisaaa bann jaaugaaa I AMMM SHOOO SHOLLYYYYYY MYYY PILLLUUUUUUU 🥺
-          </p>
+      <!-- Card 6 -->
+      <section class="love-card-3d tilt-card">
+        <div class="card-chapter">💍 Part 06 • My Princess, My Queen, My Wifey</div>
+        <h2 class="card-heading">Youuu aree soo perfect myyy babieee... 😭🫶🏻</h2>
+        <div class="card-body">
+          I loveee youuuu shooo muchhh meraaa chhotuuu shaa pilluuuu 😭😭🥹🫶🏻🫶🏻🫂🫂💋💋 youuu aree my life myyy princesss myy queen myyy wifey myyy lifeee myyy everything myyy babbieeee meraaa bacchaaaa meraaa chhotuuuu babbyyyy ekk sach baat btauuu kii likee everytimee i see youuu talk too u matlabb yaarrr kitnaaa pyaarrr ataa hai mujhe bc itnaaa pyaarrr 😭🫂🥹😘 mtlb youuu aree soo perfect myyy babieee aap wahii ho ekdam vaisee jaisee mujhe chahiyee thee 😭🫶🏻 Likee I loveee youuu yrrr 😭😭😭 I loveeeee youuuu sooo muchh pillluuuuu kisssii leeeloooo mwahhhhhhhhhhhhhhhhhhh<br>
+          😭😭🫶🏻🥹🥹 meriii jaann huggieeee bbhiii leloo bhott shaaliii 🫂🫂❤️❤️❤️<br><br>
+          Maaaaf krdooo pillluuuu I AMM SHOOO SHOOOOOOO SHOOOO MUCCHHHHH SHOLLYYYYY MYYYY PILLLUUUU 🥺<br>
+          I LOVEEEEEE YOUUUUU SHOOOO MUCHHHH MYY BABBIE PLEASE FORGIVEEE MEEEE BABBIEE 🥺🫂
         </div>
       </section>
 
-      <!-- SECTION 7: FINALE & INTERACTIVE FORGIVENESS -->
-      <section class="love-3d-card tilt-card p-6 sm:p-8 border-pink-400/50">
-        <div class="card-inner-depth space-y-4">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-widest text-pink-300/80">Chapter 07 • My Wifey • My Life</span>
-            <span class="text-2xl">💍🫂💋</span>
-          </div>
-          <h2 class="serif-display text-3xl sm:text-4xl font-bold rose-gold-text">
-            Maaf Krdo Pilluuuu 💍🫂
-          </h2>
-          <p class="text-pink-50/95 text-[15px] sm:text-base leading-[1.8]">
-            I loveee youuuu shooo muchhh meraaa chhotuuu shaa pilluuuu 😭😭🥹🫶🏻🫶🏻🫂🫂💋💋 youuu aree my life myyy princesss myy queen myyy wifey myyy lifeee myyy everything myyy babbieeee meraaa bacchaaaa meraaa chhotuuuu babbyyyy ekk sach baat btauuu kii likee everytimee i see youuu talk too u matlabb yaarrr kitnaaa pyaarrr ataa hai mujhe bc itnaaa pyaarrr 😭🫂🥹😘 mtlb youuu aree soo perfect myyy babieee aap wahii ho ekdam vaisee jaisee mujhe chahiyee thee 😭🫶🏻 Likee I loveee youuu yrrr 😭😭😭 I loveeeee youuuu sooo muchh pillluuuuu kisssii leeeloooo mwahhhhhhhhhhhhhhhhhhh 😭😭🫶🏻🥹🥹 meriii jaann huggieeee bbhiii leloo bhott shaaliii 🫂🫂❤️❤️❤️ Maaaaf krdooo pillluuuu I AMM SHOOO SHOOOOOOO SHOOOO MUCCHHHHH SHOLLYYYYY MYYYY PILLLUUUU 🥺 I LOVEEEEEE YOUUUUU SHOOOO MUCHHHH MYY BABBIE PLEASE FORGIVEEE MEEEE BABBIEE 🥺🫂
-          </p>
-
-          <!-- Interactive Love & Forgiveness Buttons -->
-          <div class="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <button type="button" id="btn-kissii" class="love-action-btn cute-display text-white font-semibold py-3.5 px-4 rounded-2xl text-sm flex items-center justify-center gap-2 cursor-pointer">
-              <span>Send Kissii</span>
-              <span class="text-lg">💋</span>
-            </button>
-
-            <button type="button" id="btn-huggie" class="love-action-btn cute-display text-white font-semibold py-3.5 px-4 rounded-2xl text-sm flex items-center justify-center gap-2 cursor-pointer">
-              <span>Send Huggie</span>
-              <span class="text-lg">🫂</span>
-            </button>
-
-            <button type="button" id="btn-forgive" class="cute-display font-bold py-3.5 px-4 rounded-2xl text-sm flex items-center justify-center gap-2 cursor-pointer bg-gradient-to-r from-[#ffd6e0] to-[#f6cba7] text-[#3d1222] shadow-lg active:scale-95 transition-transform">
-              <span>Maaf Kiya Pillu</span>
-              <span class="text-lg">❤️</span>
-            </button>
-          </div>
-
-          <!-- Forgiveness Certificate Card (Revealed on "Maaf Kiya Pillu") -->
-          <div id="forgive-certificate" class="hidden mt-5 p-5 rounded-2xl bg-gradient-to-br from-pink-500/25 to-amber-300/15 border border-pink-300/40 text-center space-y-2 animate-fadeIn">
-            <div class="text-3xl">💍🐱❤️✨</div>
-            <h3 class="serif-display text-2xl font-bold text-pink-200">
-              Official Love & Forgiveness Certificate
-            </h3>
-            <p class="text-sm text-pink-100/90 leading-relaxed">
-              Mera Chhotuu Saa Pilluuu ne apne Joruu Ke Gulam ko maaf kar diya hai! 🥹🫶🏻<br/>
-              <strong>Forever Promise:</strong> No more gussa, sirf dher saara pyaar, huggies aur kissies hamesha! Mwahhhhhh 💋🫂
-            </p>
-          </div>
+      <!-- Card 7: Interactive Forgiveness Card -->
+      <section class="love-card-3d forgive-card tilt-card">
+        <h2 class="card-heading">Maaaaf krdooo pillluuuu 🥺🫂</h2>
+        <p class="card-body">Tap below to forgive your chhotuuu babbie and claim unlimited huggies &amp; kissies!</p>
+        <div class="btn-group-3d">
+          <button class="action-btn-3d btn-yes" onclick="forgiveAction('yes')">Haan Maaf Kiya Mera Baccha ❤️🥺</button>
+          <button class="action-btn-3d btn-kiss" onclick="forgiveAction('kiss')">Send Mwahhhhhh &amp; Huggie 💋🫂</button>
         </div>
+        <div id="forgive-response"></div>
       </section>
 
     </main>
+
+    <!-- Cute Bouncing Meow Corner Helper -->
+    <div class="corner-cat-widget" onclick="triggerMiniMeow()">
+      <span style="font-size: 1.4rem;">🐱</span>
+      <span>Meow! Tap for Kissie 💋</span>
+    </div>
   </div>
 
-  <script>
-    /* =========================================================
-       1. PASSCODE LOCK SCREEN LOGIC (CODE: 1331)
-       ========================================================= */
-    const CORRECT_PASSCODE = "1331";
-    let currentInput = "";
-    let isUnlocked = false;
+<script>
+  // ==================== PASSCODE LOGIC (1331) ====================
+  let enteredPin = "";
+  const CORRECT_PIN = "1331";
 
-    const boxes = [
-      document.getElementById("box-0"),
-      document.getElementById("box-1"),
-      document.getElementById("box-2"),
-      document.getElementById("box-3")
-    ];
-    const passcodeCard = document.getElementById("passcode-card");
-    const passcodePrompt = document.getElementById("passcode-prompt");
-    const meowCat = document.getElementById("meow-cat");
-    const meowSpeech = document.getElementById("meow-speech");
-    const padlockShackle = document.getElementById("padlock-shackle");
-    const lockScreen = document.getElementById("lock-screen");
-    const loveExperience = document.getElementById("love-experience");
-
-    // Soft Web Audio API chime (no external audio URLs needed)
-    function playCuteTone(freq = 660, duration = 0.09, type = "sine") {
-      try {
-        const AudioCtx = window.AudioContext || window.webkitAudioContext;
-        if (!AudioCtx) return;
-        const ctx = new AudioCtx();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = type;
-        osc.frequency.setValueAtTime(freq, ctx.currentTime);
-        gain.gain.setValueAtTime(0.08, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start();
-        osc.stop(ctx.currentTime + duration);
-      } catch (e) {}
-    }
-
-    function updatePasscodeDisplay() {
-      for (let i = 0; i < 4; i++) {
-        if (i < currentInput.length) {
-          boxes[i].textContent = "*";
-          boxes[i].classList.add("filled");
-        } else {
-          boxes[i].textContent = "";
-          boxes[i].classList.remove("filled");
-        }
-      }
-    }
-
-    function spawnEmojiBurst(x, y, emojis = ["❤️", "💋", "🫶🏻", "🐾", "✨"], count = 16) {
-      for (let i = 0; i < count; i++) {
-        const el = document.createElement("div");
-        el.className = "burst-particle";
-        el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        el.style.left = `${x}px`;
-        el.style.top = `${y}px`;
-        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
-        const distance = 70 + Math.random() * 140;
-        el.style.setProperty("--tx", `${Math.cos(angle) * distance}px`);
-        el.style.setProperty("--ty", `${Math.sin(angle) * distance - 60}px`);
-        el.style.setProperty("--rot", `${(Math.random() - 0.5) * 90}deg`);
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 1650);
-      }
-    }
-
-    function triggerUnlockSequence() {
-      if (isUnlocked) return;
-      isUnlocked = true;
-
-      // Unlock padlock shackle visually
-      padlockShackle.setAttribute("transform", "translate(0, -4) rotate(-18 23 15)");
-      passcodePrompt.textContent = "Yayyy! Unlocked ❤️";
-      passcodePrompt.style.color = "#c63b64";
-
-      // Make Meow cat jump up and down excitedly!
-      meowCat.classList.add("excited-jump");
-      meowSpeech.innerHTML = `
-        <span class="inline-block bg-[#d65c7d] text-white cute-display text-xs font-bold px-3.5 py-1 rounded-full shadow-md">
-          Meowww!! I Love You Pilluuu 💋🐾❤️
-        </span>
-      `;
-
-      // Play happy arpeggio chime
-      playCuteTone(523.25, 0.12);
-      setTimeout(() => playCuteTone(659.25, 0.12), 110);
-      setTimeout(() => playCuteTone(783.99, 0.14), 220);
-      setTimeout(() => playCuteTone(1046.5, 0.25), 330);
-
-      // Burst hearts from center
-      const cx = window.innerWidth / 2;
-      const cy = window.innerHeight / 2;
-      spawnEmojiBurst(cx, cy, ["❤️", "💋", "🥺", "🫶🏻", "🐾", "💍"], 28);
-
-      // Transition smoothly into the 3D Apology & Love Website
-      setTimeout(() => {
-        lockScreen.classList.add("unlocked-exit");
-        loveExperience.classList.add("visible");
-        document.body.style.overflowY = "auto";
-        initThreeJSUniverse();
-      }, 1150);
-    }
-
-    function checkPasscode() {
-      if (currentInput === CORRECT_PASSCODE) {
-        triggerUnlockSequence();
+  function updatePinDisplay() {
+    for (let i = 0; i < 4; i++) {
+      const box = document.getElementById(`box-${i}`);
+      if (i < enteredPin.length) {
+        box.textContent = "*";
+        box.classList.add("filled");
       } else {
-        playCuteTone(240, 0.18, "triangle");
-        passcodeCard.classList.remove("shake-animation");
-        void passcodeCard.offsetWidth; // trigger reflow
-        passcodeCard.classList.add("shake-animation");
-        passcodePrompt.textContent = "Try 1331 pillu 🥺";
-        setTimeout(() => {
-          currentInput = "";
-          updatePasscodeDisplay();
-          if (!isUnlocked) passcodePrompt.textContent = "Enter passcode";
-        }, 900);
+        box.textContent = "";
+        box.classList.remove("filled");
       }
     }
+  }
 
-    // Keypad Event Listeners
-    document.querySelectorAll(".key-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        if (isUnlocked) return;
-        const key = btn.getAttribute("data-key");
-        playCuteTone(580 + Math.random() * 140, 0.07);
-
-        if (key === "clear") {
-          currentInput = "";
-          updatePasscodeDisplay();
-          return;
-        }
-        if (key === "back") {
-          currentInput = currentInput.slice(0, -1);
-          updatePasscodeDisplay();
-          return;
-        }
-
-        if (currentInput.length < 4) {
-          currentInput += key;
-          updatePasscodeDisplay();
-          if (currentInput.length === 4) {
-            setTimeout(checkPasscode, 220);
-          }
-        }
-      });
-    });
-
-    document.getElementById("enter-pass-btn").addEventListener("click", () => {
-      if (!isUnlocked) checkPasscode();
-    });
-
-    // Clickable Padlock Icon
-    document.getElementById("padlock-icon-btn").addEventListener("click", (e) => {
-      playCuteTone(740, 0.1);
-      passcodePrompt.textContent = "Passcode is 1331 ❤️";
-      spawnEmojiBurst(e.clientX, e.clientY, ["🔑", "❤️", "🥺"], 8);
-    });
-
-    // Clickable Meow Cat on Lock Screen
-    meowCat.addEventListener("click", (e) => {
-      playCuteTone(880, 0.12);
-      meowCat.classList.add("excited-jump");
-      spawnEmojiBurst(e.clientX, e.clientY, ["🐾", "💋", "❤️", "🐱"], 10);
-      if (!isUnlocked) {
-        setTimeout(() => meowCat.classList.remove("excited-jump"), 1200);
+  function pressDigit(digit) {
+    if (enteredPin.length < 4) {
+      enteredPin += digit;
+      updatePinDisplay();
+      if (enteredPin.length === 4) {
+        setTimeout(checkPasscode, 220);
       }
-    });
-
-    /* =========================================================
-       2. PHOTO PICKER FOR ORANGE MIRROR SELFIE
-       ========================================================= */
-    const selfieInput = document.getElementById("selfie-upload-input");
-    const pickPhotoBtn = document.getElementById("pick-photo-btn");
-    const lockHeartImg = document.getElementById("lock-heart-img");
-    const storyMirrorImg = document.getElementById("story-mirror-img");
-    const mirrorFallbackArt = document.getElementById("mirror-fallback-art");
-    const storyImgFallback = document.getElementById("story-img-fallback");
-
-    pickPhotoBtn.addEventListener("click", () => {
-      selfieInput.click();
-    });
-
-    selfieInput.addEventListener("change", (event) => {
-      const file = event.target.files && event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const dataUrl = e.target.result;
-        lockHeartImg.src = dataUrl;
-        lockHeartImg.style.display = "block";
-        mirrorFallbackArt.style.display = "none";
-
-        storyMirrorImg.src = dataUrl;
-        storyMirrorImg.style.display = "block";
-        storyImgFallback.style.display = "none";
-      };
-      reader.readAsDataURL(file);
-    });
-
-    /* =========================================================
-       3. THREE.JS 3D FLOATING HEARTS & STARDUST UNIVERSE
-       ========================================================= */
-    let threeInitialized = false;
-
-    function initThreeJSUniverse() {
-      if (threeInitialized || typeof THREE === "undefined") return;
-      threeInitialized = true;
-
-      const canvas = document.getElementById("three-canvas");
-      const scene = new THREE.Scene();
-      scene.fog = new THREE.FogExp2(0x11070d, 0.035);
-
-      const camera = new THREE.PerspectiveCamera(
-        60,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        100
-      );
-      camera.position.z = 16;
-
-      const renderer = new THREE.WebGLRenderer({
-        canvas,
-        antialias: true,
-        alpha: true
-      });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-      // Lighting (Rose Gold + Warm Champagne + Soft Crimson)
-      const ambientLight = new THREE.AmbientLight(0xffd6e0, 0.75);
-      scene.add(ambientLight);
-
-      const pointLight1 = new THREE.PointLight(0xff6b95, 2.2, 50);
-      pointLight1.position.set(8, 10, 12);
-      scene.add(pointLight1);
-
-      const pointLight2 = new THREE.PointLight(0xf6d5b8, 1.8, 50);
-      pointLight2.position.set(-10, -6, 10);
-      scene.add(pointLight2);
-
-      // Build True 3D Extruded Heart Geometry
-      const heartShape = new THREE.Shape();
-      const x = 0, y = 0;
-      heartShape.moveTo(x + 0.5, y + 0.5);
-      heartShape.bezierCurveTo(x + 0.5, y + 0.5, x + 0.4, y, x, y);
-      heartShape.bezierCurveTo(x - 0.6, y, x - 0.6, y + 0.7, x - 0.6, y + 0.7);
-      heartShape.bezierCurveTo(x - 0.6, y + 1.1, x - 0.3, y + 1.54, x + 0.5, y + 1.9);
-      heartShape.bezierCurveTo(x + 1.2, y + 1.54, x + 1.6, y + 1.1, x + 1.6, y + 0.7);
-      heartShape.bezierCurveTo(x + 1.6, y + 0.7, x + 1.6, y, x + 1.0, y);
-      heartShape.bezierCurveTo(x + 0.7, y, x + 0.5, y + 0.5, x + 0.5, y + 0.5);
-
-      const extrudeSettings = {
-        depth: 0.35,
-        bevelEnabled: true,
-        bevelSegments: 4,
-        steps: 1,
-        bevelSize: 0.12,
-        bevelThickness: 0.12
-      };
-
-      const heartGeometry = new THREE.ExtrudeGeometry(heartShape, extrudeSettings);
-      heartGeometry.center();
-      heartGeometry.rotateZ(Math.PI);
-
-      const palette = [0xe85880, 0xff8fab, 0xd63c68, 0xf6cba7, 0xff4d79];
-      const hearts = [];
-
-      for (let i = 0; i < 34; i++) {
-        const mat = new THREE.MeshStandardMaterial({
-          color: palette[i % palette.length],
-          roughness: 0.25,
-          metalness: 0.35,
-          emissive: 0x4a1024,
-          emissiveIntensity: 0.35
-        });
-
-        const mesh = new THREE.Mesh(heartGeometry, mat);
-        const scale = 0.28 + Math.random() * 0.48;
-        mesh.scale.set(scale, scale, scale);
-
-        mesh.position.set(
-          (Math.random() - 0.5) * 24,
-          (Math.random() - 0.5) * 26,
-          (Math.random() - 0.5) * 16 - 2
-        );
-
-        mesh.rotation.set(
-          Math.random() * Math.PI,
-          Math.random() * Math.PI,
-          Math.random() * Math.PI
-        );
-
-        mesh.userData = {
-          speedY: 0.008 + Math.random() * 0.015,
-          rotSpeedX: (Math.random() - 0.5) * 0.015,
-          rotSpeedY: 0.008 + Math.random() * 0.018,
-          wobbleOffset: Math.random() * Math.PI * 2
-        };
-
-        scene.add(mesh);
-        hearts.push(mesh);
-      }
-
-      // Floating Stardust Particles
-      const starCount = 260;
-      const starPositions = new Float32Array(starCount * 3);
-      for (let i = 0; i < starCount * 3; i += 3) {
-        starPositions[i] = (Math.random() - 0.5) * 35;
-        starPositions[i + 1] = (Math.random() - 0.5) * 35;
-        starPositions[i + 2] = (Math.random() - 0.5) * 25;
-      }
-      const starGeo = new THREE.BufferGeometry();
-      starGeo.setAttribute("position", new THREE.BufferAttribute(starPositions, 3));
-      const starMat = new THREE.PointsMaterial({
-        color: 0xffd6e0,
-        size: 0.14,
-        transparent: true,
-        opacity: 0.85
-      });
-      const starField = new THREE.Points(starGeo, starMat);
-      scene.add(starField);
-
-      // Interactive Camera Parallax on Touch & Mouse Move
-      let targetX = 0;
-      let targetY = 0;
-
-      window.addEventListener("mousemove", (e) => {
-        targetX = (e.clientX / window.innerWidth - 0.5) * 2.2;
-        targetY = -(e.clientY / window.innerHeight - 0.5) * 2.2;
-      });
-
-      window.addEventListener("touchmove", (e) => {
-        if (e.touches && e.touches[0]) {
-          targetX = (e.touches[0].clientX / window.innerWidth - 0.5) * 2.4;
-          targetY = -(e.touches[0].clientY / window.innerHeight - 0.5) * 2.4;
-        }
-      }, { passive: true });
-
-      window.addEventListener("resize", () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-
-      const clock = new THREE.Clock();
-
-      function animate() {
-        requestAnimationFrame(animate);
-        const elapsed = clock.getElapsedTime();
-
-        hearts.forEach((h) => {
-          h.position.y += h.userData.speedY;
-          h.position.x += Math.sin(elapsed + h.userData.wobbleOffset) * 0.004;
-          h.rotation.x += h.userData.rotSpeedX;
-          h.rotation.y += h.userData.rotSpeedY;
-
-          if (h.position.y > 14) {
-            h.position.y = -14;
-          }
-        });
-
-        starField.rotation.y = elapsed * 0.03;
-
-        camera.position.x += (targetX - camera.position.x) * 0.05;
-        camera.position.y += (targetY - camera.position.y) * 0.05;
-        camera.lookAt(0, 0, 0);
-
-        renderer.render(scene, camera);
-      }
-
-      animate();
     }
+  }
 
-    /* =========================================================
-       4. INTERACTIVE 3D TILT CARDS & FINALE BUTTONS
-       ========================================================= */
-    document.querySelectorAll(".tilt-card").forEach((card) => {
-      card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = `rotateY(${x * 9}deg) rotateX(${-y * 9}deg) scale(1.01)`;
+  function backspacePin() {
+    enteredPin = enteredPin.slice(0, -1);
+    updatePinDisplay();
+  }
+
+  function clearPin() {
+    enteredPin = "";
+    updatePinDisplay();
+  }
+
+  function focusLock() {
+    const pad = document.getElementById("padlock-icon");
+    pad.style.transform = "scale(1.3) rotate(12deg)";
+    setTimeout(() => pad.style.transform = "", 300);
+  }
+
+  function checkPasscode() {
+    const boxes = document.getElementById("pin-boxes");
+    const hint = document.getElementById("lock-hint");
+    const pad = document.getElementById("padlock-icon");
+
+    if (enteredPin === CORRECT_PIN) {
+      pad.textContent = "🔓";
+      hint.textContent = "Unlocked! Yayyy Mera Pilluuu! 💖";
+      hint.style.color = "#d6336c";
+
+      // 1. Slide Lock Screen up in 3D
+      document.getElementById("lock-screen").classList.add("unlocked");
+
+      // 2. Show Bouncing Meow Overlay
+      const meowOverlay = document.getElementById("meow-overlay");
+      meowOverlay.classList.add("active");
+
+      // 3. After Meow bounces up and down, reveal the 3D website
+      setTimeout(() => {
+        meowOverlay.classList.remove("active");
+        const mainUniverse = document.getElementById("main-universe");
+        mainUniverse.classList.add("visible");
+        spawnFloatingHearts();
+      }, 2400);
+
+    } else {
+      boxes.classList.add("shake");
+      hint.textContent = "Wrong passcode babbie! Try 1331 🥺";
+      hint.style.color = "#c9184a";
+      setTimeout(() => {
+        boxes.classList.remove("shake");
+        clearPin();
+      }, 500);
+    }
+  }
+
+  // Support physical keyboard typing too
+  document.addEventListener("keydown", (e) => {
+    if (document.getElementById("lock-screen").classList.contains("unlocked")) return;
+    if (e.key >= "0" && e.key <= "9") pressDigit(e.key);
+    if (e.key === "Backspace") backspacePin();
+    if (e.key === "Enter") checkPasscode();
+  });
+
+  // ==================== 3D TILT EFFECT FOR CARDS ====================
+  document.addEventListener("mousemove", (e) => {
+    const cards = document.querySelectorAll(".tilt-card");
+    const xAxis = (window.innerWidth / 2 - e.pageX) / 45;
+    const yAxis = (window.innerHeight / 2 - e.clientY) / 45;
+
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        card.style.transform = `rotateY(${-xAxis}deg) rotateX(${yAxis}deg)`;
+      }
+    });
+  });
+
+  // Reset tilt on touch devices smoothly
+  document.addEventListener("touchmove", (e) => {
+    const touch = e.touches[0];
+    const xAxis = (window.innerWidth / 2 - touch.clientX) / 35;
+    const cards = document.querySelectorAll(".tilt-card");
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        card.style.transform = `rotateY(${-xAxis}deg) rotateX(2deg)`;
+      }
+    });
+  }, { passive: true });
+
+  // ==================== FLOATING HEARTS & CELEBRATION ====================
+  function spawnFloatingHearts() {
+    const container = document.getElementById("floating-bg");
+    const emojis = ["❤️", "💋", "🥺", "🫶🏻", "🫂", "🌹", "💖", "🐣"];
+    setInterval(() => {
+      const el = document.createElement("div");
+      el.className = "bg-heart";
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.animationDuration = (5 + Math.random() * 5) + "s";
+      el.style.fontSize = (18 + Math.random() * 18) + "px";
+      container.appendChild(el);
+      setTimeout(() => el.remove(), 10000);
+    }, 450);
+  }
+
+  function burstEmojis(emojiList) {
+    for (let i = 0; i < 24; i++) {
+      const el = document.createElement("div");
+      el.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
+      el.style.position = "fixed";
+      el.style.left = (20 + Math.random() * 60) + "vw";
+      el.style.top = (30 + Math.random() * 40) + "vh";
+      el.style.fontSize = (24 + Math.random() * 20) + "px";
+      el.style.zIndex = "999";
+      el.style.pointerEvents = "none";
+      el.style.transition = "all 1.2s cubic-bezier(0.16, 1, 0.3, 1)";
+      document.body.appendChild(el);
+
+      requestAnimationFrame(() => {
+        el.style.transform = `translate(${(Math.random() - 0.5) * 260}px, ${-120 - Math.random() * 180}px) scale(1.4)`;
+        el.style.opacity = "0";
       });
+      setTimeout(() => el.remove(), 1300);
+    }
+  }
 
-      card.addEventListener("mouseleave", () => {
-        card.style.transform = "rotateY(0deg) rotateX(0deg) scale(1)";
-      });
+  function forgiveAction(type) {
+    const res = document.getElementById("forgive-response");
+    res.style.display = "block";
+    if (type === "yes") {
+      res.innerHTML = "YAYYYY! I LOVEEEE YOUUUU SHOOO MUCHHH MERAA CHHOTUUU PILLUUUU 😭❤️🫂💍";
+      burstEmojis(["❤️", "💍", "🥹", "🫶🏻", "🫂"]);
+    } else {
+      res.innerHTML = "MWAHHHHHHHHHHHHHHHHHHHHHHHHHH! 💋💋💋🫂🫂❤️ Merii Jaan!";
+      burstEmojis(["💋", "😘", "🫂", "❤️", "🐣"]);
+    }
+  }
 
-      card.addEventListener("touchmove", (e) => {
-        if (!e.touches || !e.touches[0]) return;
-        const rect = card.getBoundingClientRect();
-        const x = (e.touches[0].clientX - rect.left) / rect.width - 0.5;
-        const y = (e.touches[0].clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = `rotateY(${x * 7}deg) rotateX(${-y * 7}deg)`;
-      }, { passive: true });
-
-      card.addEventListener("touchend", () => {
-        card.style.transform = "rotateY(0deg) rotateX(0deg)";
-      });
-    });
-
-    // Finale Action Buttons
-    document.getElementById("btn-kissii").addEventListener("click", (e) => {
-      playCuteTone(780, 0.14);
-      spawnEmojiBurst(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, ["💋", "😘", "❤️", "💕"], 22);
-    });
-
-    document.getElementById("btn-huggie").addEventListener("click", (e) => {
-      playCuteTone(620, 0.16);
-      spawnEmojiBurst(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, ["🫂", "🫶🏻", "🥺", "💖"], 22);
-    });
-
-    document.getElementById("btn-forgive").addEventListener("click", (e) => {
-      playCuteTone(523.25, 0.12);
-      setTimeout(() => playCuteTone(659.25, 0.12), 100);
-      setTimeout(() => playCuteTone(783.99, 0.15), 200);
-      setTimeout(() => playCuteTone(1046.5, 0.3), 300);
-
-      const cert = document.getElementById("forgive-certificate");
-      cert.classList.remove("hidden");
-      cert.scrollIntoView({ behavior: "smooth", block: "center" });
-
-      spawnEmojiBurst(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, ["💍", "❤️", "💋", "🫂", "🐱", "✨"], 34);
-    });
-
-    document.getElementById("floating-meow-buddy").addEventListener("click", (e) => {
-      playCuteTone(880, 0.12);
-      spawnEmojiBurst(e.clientX, e.clientY, ["🐾", "💋", "❤️", "🥺"], 14);
-    });
-  </script>
+  function triggerMiniMeow() {
+    burstEmojis(["🐾", "💋", "❤️", "🐱", "🥺"]);
+  }
+</script>
 </body>
 </html>
